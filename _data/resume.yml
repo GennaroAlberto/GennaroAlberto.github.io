@@ -1,0 +1,195 @@
+first_name: "Alberto"
+last_name: "Gennaro"
+kicker: "Incoming Senior Associate · J.P. Morgan Chase — ML Centre of Excellence (Time Series &amp; RL), NYC · Ph.D., UC Berkeley IEOR"
+
+# Intro paragraph rendered on the home page. HTML allowed.
+intro: |
+  Hi, I'm Alberto. I'm about to start as a Senior Associate in Machine Learning on the
+  <strong>Time Series &amp; Reinforcement Learning</strong> team at J.P. Morgan's
+  <strong>ML Centre of Excellence</strong> in New York. Before that, I was lucky to be advised by
+  <strong>Prof. Thibaut Mastrolia</strong> during my Ph.D. at <strong>UC Berkeley IEOR</strong>,
+  where I worked on stochastic optimal control under time and model uncertainty,
+  with applications in financial engineering.
+
+  In what now feels like a previous life, I did my Bachelor's and M.Sc. in Mathematical
+  Engineering at <strong>Politecnico di Torino</strong>, and — pulled by both research and
+  finance — a second M.Sc. in Statistics &amp; Applied Math at <strong>Collegio Carlo
+  Alberto</strong>. My thesis there, advised by <strong>Prof. Brandimarte</strong> and
+  <strong>Prof. Fadda</strong>, looked at tractable approximations of large-scale
+  multi-stage stochastic programs via linear decision rules.
+
+  Outside of work, you'll probably find me on a tennis court or a golf course, or trying
+  to learn something new. If you work in RL or time series, I'd love to hear from you —
+  <span class="mono">alberto (dot) gennaro (at) berkeley (dot) edu</span>.
+
+portrait: "/assets/img/portrait.jpeg"
+
+# exactly as requested:
+email_obfuscated: "(my name) dot (my last name) (at) (berkeley dot edu)"
+
+# Social / professional links
+links:
+  - label: "Google Scholar"
+    href:  "https://scholar.google.com/citations?user=fHtUhuMAAAAJ"
+    icon:  "scholar"
+  - label: "GitHub"
+    href:  "https://github.com/GennaroAlberto"
+    icon:  "github"
+  - label: "LinkedIn"
+    href:  "https://www.linkedin.com/in/alberto-gennaro/"
+    icon:  "linkedin"
+  - label: "IEOR @ Berkeley"
+    href:  "https://ieor.berkeley.edu/academics/phd/"
+    icon:  "berkeley"
+
+chips:
+  - "Time Series"
+  - "Reinforcement Learning"
+  - "Stochastic Control"
+  - "ML / Deep Learning"
+  - "Numerical PDEs"
+
+research_focus: "Sequential decision-making under uncertainty: time-series forecasting, reinforcement learning, stochastic control with uncertain horizon, and the numerical methods that make them computable."
+
+# News / highlights — most recent first
+news:
+  - when: "Soon"
+    what: "Joining <strong>J.P. Morgan Chase — ML Centre of Excellence</strong>, on the Time Series &amp; Reinforcement Learning team."
+  - when: "May 2026"
+    what: "Ph.D. defended at UC Berkeley IEOR. Also: invited talk at Bachelier FS26 (Bologna)."
+  - when: "2026"
+    what: "<em>Delegated portfolio management with random default</em> accepted for publication in <em>Mathematical Finance</em>."
+  - when: "Oct 2025"
+    what: "<strong>2nd place</strong> at the <strong>INFORMS RAS Problem Solving Competition</strong> (with team MathConvoy), INFORMS Annual Meeting."
+  - when: "Aug 2025"
+    what: "Wrapped up Applied Scientist internship at Amazon SCOT (Bellevue, WA)."
+  - when: "Jul 2025"
+    what: "<strong>Best Paper Finalist</strong> (top 6) — SIAM Conference on Financial Mathematics (Miami)."
+  - when: "Jun 2025"
+    what: "Preprint posted on arXiv: <em>2BSDE with uncertain horizon</em>."
+
+# Publications — newest first
+publications:
+  - title: "2BSDE with uncertain horizon and application to stochastic control in erratic environments"
+    authors: "A. Gennaro"
+    venue: "Preprint · arXiv:2506.15037"
+    year: 2025
+    status: "preprint"
+    summary: "Existence/uniqueness for non-Markovian 2BSDEs with an uncertain terminal horizon; framework for robust stochastic control under volatility and time uncertainty."
+    links:
+      - { label: "arXiv", href: "https://arxiv.org/abs/2506.15037" }
+      - { label: "PDF",   href: "https://arxiv.org/pdf/2506.15037" }
+  - title: "Delegated portfolio management with random default"
+    authors: "A. Gennaro, T. Mastrolia"
+    venue: "To appear in <em>Mathematical Finance</em> · arXiv:2410.13103"
+    year: 2024
+    status: "to appear"
+    summary: "Principal–agent problem with a Second Order BSDE under default risk; derive a new HJB PDE and solve it numerically with an iterative PINN."
+    links:
+      - { label: "arXiv", href: "https://arxiv.org/abs/2410.13103" }
+      - { label: "PDF",   href: "https://arxiv.org/pdf/2410.13103" }
+      - { label: "Code",  href: "https://github.com/GennaroAlberto/PrincipalAgent" }
+
+research_projects:
+  - title: "Signature methods for optimal control"
+    status: "in progress"
+    bullets:
+      - "Using path signatures (rough path theory) to learn approximate-optimal policies directly from time-series via REINFORCE."
+      - "Connects modern ML with classical stochastic control."
+    links:
+      - { label: "Code (sigReinforce)", href: "https://github.com/GennaroAlberto/sigReinforce" }
+  - title: "Delegating portfolio management under time uncertainty"
+    bullets:
+      - "Principal–agent theory with a Second Order BSDE (2BSDE) under default risk; new HJB PDE."
+      - "Iterative Physics-Informed Neural Network (PINN) solver in TensorFlow."
+      - "Best Paper Finalist (top 6) at SIAM Conference on Financial Mathematics 2025."
+    links:
+      - { label: "Paper code", href: "https://github.com/GennaroAlberto/PrincipalAgent" }
+  - title: "2BSDE with uncertain horizon and control in erratic environments"
+    bullets:
+      - "Existence and uniqueness for a class of non-Markovian 2BSDEs with random horizon."
+      - "Framework for robust control under both volatility and time uncertainty."
+  - title: "Predictive maintenance for rail systems — INFORMS RAS 2025"
+    status: "2nd place"
+    bullets:
+      - "With my team MathConvoy, we placed second at the [INFORMS RAS 2025 Problem Solving Competition](https://connect.informs.org/discussion/2025-informs-ras-problem-solving-competition-1) at the 2025 INFORMS Annual Meeting."
+      - "Using operations research and advanced analytical approaches, we created a predictive maintenance tool for rail systems. Using wheel-profile data, mileage, railcar attributes and other sensor measurements, the tool predicts wheel failures on commercial trains."
+      - "Joint work with my teammates [Daniele Gioia](https://github.com/DanieleGioia), Jacopo Bonari, and Edoardo Fadda; the team code is shared in Daniele's repository."
+    links:
+      - { label: "Competition", href: "https://connect.informs.org/discussion/2025-informs-ras-problem-solving-competition-1" }
+      - { label: "Team code (shared)", href: "https://github.com/DanieleGioia/RAS2025" }
+  - title: "Linear decision rules for multi-stage stochastic programs (M.Sc. thesis)"
+    bullets:
+      - "Tractable approximations of large-scale multi-stage stochastic programs via linear decision rules, applied to an assemble-to-order (ATO) problem."
+      - "Advised by Prof. Brandimarte and Prof. Fadda at Collegio Carlo Alberto."
+      - "Repository cleaned and maintained by my collaborator [Daniele Gioia](https://github.com/DanieleGioia)."
+    links:
+      - { label: "ATO code", href: "https://github.com/DanieleGioia/ATO" }
+
+awards:
+  - text: "Best Paper Finalist (top 6) — SIAM Conference on Financial Mathematics"
+    when: "Jul 2025"
+  - text: "INFORMS RAS Problem Solving Competition — 2nd place"
+    when: "Oct 2025"
+  - text: "Outstanding Graduate Student Instructor Award — UC Berkeley"
+    when: "2025"
+  - text: "Nova 111 List — Italy"
+    when: "2022"
+    href: "https://www.novatalent.com/111-list/italy-2022"
+
+teaching:
+  - course: "INDENG 241"
+    title: "Risk Modeling, Simulation, and Data Analysis"
+    role: "GSI"
+    terms: "Fall 2023, Fall 2024, Fall 2025"
+    note: "Outstanding GSI Award (2025)"
+  - course: "INDENG 222"
+    title: "Financial Engineering"
+    role: "GSI"
+    terms: "Spring 2024, Spring 2025"
+  - course: "MFE 230D"
+    title: "Derivatives: Quantitative Methods"
+    role: "GSI"
+    terms: "Summer 2024"
+    note: "Haas MFE"
+  - course: "INDENG 243"
+    title: "Analytics Lab"
+    role: "GSI"
+    terms: "Spring 2023"
+  - course: "INDENG 242"
+    title: "Applications in Data Analysis"
+    role: "GSI"
+    terms: "Fall 2022"
+  - course: "INDENG 120"
+    title: "Principles of Engineering Economics"
+    role: "Lecturer"
+    terms: "Spring 2026"
+
+experience:
+  - where: "J.P. Morgan Chase — ML Centre of Excellence (Time Series &amp; RL)"
+    location: "incoming"
+    when: "2026 →"
+  - where: "Amazon — Applied Scientist Intern (SCOT)"
+    location: "Bellevue, WA"
+    when: "Jun 2025 – Aug 2025"
+  - where: "Kearney — Advanced Analytics Analyst"
+    location: "Milan, Italy"
+    when: "Jan 2021 – Jun 2021"
+
+education:
+  - where: "UC Berkeley — Ph.D., Industrial Engineering & Operations Research"
+    when: "Aug 2021 – May 2026"
+  - where: "Collegio Carlo Alberto — M.Sc., Statistics & Applied Math"
+    when: ""
+  - where: "Politecnico di Torino — B.Sc. / M.Sc., Mathematical Engineering"
+    when: ""
+
+talks:
+  invited:
+    - "Bachelier FS26 — Bologna"
+    - "SIAM FM25 — Miami"
+    - "WCMF25 — USC, Los Angeles"
+  other:
+    - "Berkeley–Columbia Meeting in Engineering &amp; Statistics — 2025"
+    - "INFORMS25 — RAS Problem Solving Competition (2nd place), 2025"
+    - "Berkeley CREST Cyber-Risk Conference — 2023"

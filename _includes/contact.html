@@ -1,0 +1,39 @@
+<section id="contact" class="section reveal">
+  <h2>Get in touch</h2>
+
+  <div class="card contact-card">
+    <div>
+      <p class="muted small-caps">Email</p>
+      <p class="mono big">{{ site.data.resume.email_obfuscated }}</p>
+      <p class="muted small">Best for collaboration, research questions, and CV requests.</p>
+    </div>
+
+    <div class="cta">
+      <button class="btn" id="emailBtn" type="button">
+        <svg class="ic-sm" aria-hidden="true"><use href="#i-mail"/></svg>
+        Email me
+      </button>
+      <a class="btn ghost" href="https://scholar.google.com/citations?user=fHtUhuMAAAAJ" target="_blank" rel="noopener">
+        <svg class="ic-sm" aria-hidden="true"><use href="#i-scholar"/></svg>
+        Google Scholar
+      </a>
+      <a class="btn ghost" href="https://github.com/GennaroAlberto" target="_blank" rel="noopener">
+        <svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const btn = document.getElementById("emailBtn");
+      if (!btn) return;
+      btn.addEventListener("click", function () {
+        const first = "{{ site.data.resume.first_name | downcase }}";
+        const last  = "{{ site.data.resume.last_name  | downcase }}";
+        const addr  = first + "." + last + "@berkeley.edu";
+        window.location.href = "mailto:" + addr + "?subject=Website%20contact";
+      });
+    })();
+  </script>
+</section>

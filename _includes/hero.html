@@ -1,0 +1,56 @@
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="grid"></span>
+  </div>
+
+  <div class="hero-right">
+    <div class="portrait-wrap">
+      <img class="portrait" src="{{ site.data.resume.portrait | relative_url }}" alt="Portrait of {{ site.title }}" />
+      <span class="portrait-ring" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <div class="hero-left">
+    <div class="kicker">
+      <svg class="ic-sm" aria-hidden="true"><use href="#i-spark"/></svg>
+      {{ site.data.resume.kicker }}
+    </div>
+
+    <div class="intro">
+      {{ site.data.resume.intro | markdownify }}
+    </div>
+
+    <div class="chips">
+      {% for c in site.data.resume.chips %}
+        <span class="chip">{{ c }}</span>
+      {% endfor %}
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="{{ '/research/' | relative_url }}">
+        Research overview
+        <svg class="ic-sm" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+      <a class="btn ghost" href="{{ '/publications/' | relative_url }}">
+        Publications
+      </a>
+      <a class="btn ghost" href="{{ '/#contact' | relative_url }}">
+        <svg class="ic-sm" aria-hidden="true"><use href="#i-mail"/></svg>
+        Get in touch
+      </a>
+    </div>
+
+    <div class="social-row">
+      {% for l in site.data.resume.links %}
+        <a class="sociallink" href="{{ l.href }}" target="_blank" rel="noopener" title="{{ l.label }}">
+          <svg class="ic" aria-hidden="true"><use href="#i-{{ l.icon }}"/></svg>
+          <span>{{ l.label }}</span>
+        </a>
+      {% endfor %}
+    </div>
+
+    <div class="note"><strong>CV</strong> available upon request — email me.</div>
+  </div>
+</section>

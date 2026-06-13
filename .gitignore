@@ -1,0 +1,25 @@
+# Jekyll build output and cache
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Local dev / scratch
+_preview/
+data/
+vendor/
+.bundle/
+node_modules/
+
+# macOS metadata
+.DS_Store
+.fuse_hidden*
+
+# Backups & oversized originals
+*.original.*
+assets/img/portrait.original.jpeg
+
+# Editor / OS
+.idea/
+.vscode/
+*.swp

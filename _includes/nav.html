@@ -1,0 +1,20 @@
+<header class="nav">
+  <a class="brand-wrap" href="{{ '/' | relative_url }}" aria-label="Home">
+    <span class="brand-mark" aria-hidden="true">AG</span>
+    <span class="brand-text">
+      <span class="brand">{{ site.title | upcase }}</span>
+      <span class="subtitle">{{ site.description }}</span>
+    </span>
+  </a>
+
+  <nav class="nav-right" aria-label="Primary">
+    <a href="{{ '/' | relative_url }}"        class="{% if page.url == '/' %}active{% endif %}">Home</a>
+    <a href="{{ '/research/' | relative_url }}" class="{% if page.url contains '/research' %}active{% endif %}">Research</a>
+    <a href="{{ '/publications/' | relative_url }}" class="{% if page.url contains '/publications' %}active{% endif %}">Publications</a>
+    <a class="pill" href="{{ '/#contact' | relative_url }}">Contact</a>
+    <button id="themeToggle" class="iconbtn" type="button" aria-pressed="false" aria-label="Toggle color theme" title="Toggle theme">
+      <svg class="ic only-light" aria-hidden="true"><use href="#i-moon"/></svg>
+      <svg class="ic only-dark"  aria-hidden="true"><use href="#i-sun"/></svg>
+    </button>
+  </nav>
+</header>

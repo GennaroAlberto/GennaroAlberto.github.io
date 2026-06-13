@@ -1,0 +1,32 @@
+title: Alberto Gennaro
+description: Stochastic Control · OR · ML
+author: Alberto Gennaro
+# Once you've renamed the repo to GennaroAlberto.github.io, this is the live URL.
+url: "https://gennaroalberto.github.io"
+baseurl: ""
+theme: null
+markdown: kramdown
+permalink: pretty
+timezone: America/New_York
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+social:
+  name: Alberto Gennaro
+  links:
+    - https://scholar.google.com/citations?user=fHtUhuMAAAAJ
+    - https://github.com/GennaroAlberto
+    - https://www.linkedin.com/in/alberto-gennaro/
+
+exclude:
+  - write_files.py
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - serve.sh
+  - _preview
+  - data
+  - vendor
+  - "assets/img/portrait.original.jpeg"

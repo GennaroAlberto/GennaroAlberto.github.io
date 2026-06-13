@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{% if page.title and page.url != "/" %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}" />
+    <meta name="author" content="{{ site.title }}" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="profile" />
+    <meta property="og:title"       content="{{ site.title }} — {{ site.description }}" />
+    <meta property="og:description" content="{{ site.data.resume.blurb }}" />
+    <meta property="og:image"       content="{{ site.data.resume.portrait | relative_url }}" />
+    <meta name="twitter:card"       content="summary_large_image" />
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-family='ui-sans-serif,system-ui' font-weight='800' font-size='30' fill='%23fff'%3EAG%3C/text%3E%3C/svg%3E" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+
+    <script>
+      // Theme bootstrap (avoid FOUC). User can override via the toggle.
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var mql   = window.matchMedia("(prefers-color-scheme: dark)");
+          var theme = saved || (mql.matches ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    {% include icons.html %}
+
+    <div class="container">
+      {% include nav.html %}
+      <main>{{ content }}</main>
+      <footer class="footer">
+        <div class="footer-left">
+          <span>© {{ site.time | date: "%Y" }} {{ site.title }}.</span>
+          <span class="muted"> · Built with Jekyll.</span>
+        </div>
+        <div class="footer-right">
+          {% for l in site.data.resume.links %}
+            <a class="iconlink" href="{{ l.href }}" target="_blank" rel="noopener" aria-label="{{ l.label }}" title="{{ l.label }}">
+              <svg class="ic" aria-hidden="true"><use href="#i-{{ l.icon }}"/></svg>
+            </a>
+          {% endfor %}
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Theme toggle
+      (function () {
+        var btn = document.getElementById("themeToggle");
+        if (!btn) return;
+        function setTheme(t) {
+          document.documentElement.setAttribute("data-theme", t);
+          try { localStorage.setItem("theme", t); } catch (e) {}
+          btn.setAttribute("aria-pressed", t === "dark");
+        }
+        btn.addEventListener("click", function () {
+          var current = document.documentElement.getAttribute("data-theme") || "light";
+          setTheme(current === "dark" ? "light" : "dark");
+        });
+      })();
+
+      // Reveal-on-scroll
+      (function () {
+        if (!("IntersectionObserver" in window)) return;
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          });
+        }, { rootMargin: "0px 0px -40px 0px", threshold: 0.05 });
+        document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+      })();
+    </script>
+  </body>
+</html>
