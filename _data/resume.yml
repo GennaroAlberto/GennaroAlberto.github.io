@@ -4,22 +4,22 @@ kicker: "Incoming Senior Associate · J.P. Morgan Chase — ML Centre of Excelle
 
 # Intro paragraph rendered on the home page. HTML allowed.
 intro: |
-  Hi, I'm Alberto. I'm about to start as a Senior Associate in Machine Learning on the
-  <strong>Time Series &amp; Reinforcement Learning</strong> team at J.P. Morgan's
-  <strong>ML Centre of Excellence</strong> in New York. Before that, I was lucky to be advised by
-  <strong>Prof. Thibaut Mastrolia</strong> during my Ph.D. at <strong>UC Berkeley IEOR</strong>,
-  where I worked on stochastic optimal control under time and model uncertainty,
-  with applications in financial engineering.
+  Hi, I'm Alberto. I'm about to join <strong>J.P. Morgan's ML Centre of Excellence</strong>
+  in New York as a <strong>Senior Associate in Machine Learning</strong>, on the Time Series
+  and Reinforcement Learning team.
 
-  In what now feels like a previous life, I did my Bachelor's and M.Sc. in Mathematical
-  Engineering at <strong>Politecnico di Torino</strong>, and — pulled by both research and
-  finance — a second M.Sc. in Statistics &amp; Applied Math at <strong>Collegio Carlo
-  Alberto</strong>. My thesis there, advised by <strong>Prof. Brandimarte</strong> and
-  <strong>Prof. Fadda</strong>, looked at tractable approximations of large-scale
-  multi-stage stochastic programs via linear decision rules.
+  Before that, I did my Ph.D. at <strong>UC Berkeley IEOR</strong>, advised by
+  <strong>Prof. Thibaut Mastrolia</strong>. My research focused on stochastic optimal control
+  under time and model uncertainty, with applications in financial engineering.
 
-  Outside of work, you'll probably find me on a tennis court or a golf course, or trying
-  to learn something new. If you work in RL or time series, I'd love to hear from you —
+  Earlier I did my Bachelor's and M.Sc. in Mathematical Engineering at
+  <strong>Politecnico di Torino</strong>, followed by a second M.Sc. in Statistics and Applied
+  Math at <strong>Collegio Carlo Alberto</strong>. My thesis was advised by
+  <strong>Prof. Brandimarte</strong> and <strong>Prof. Fadda</strong>, on tractable
+  approximations of large-scale multi-stage stochastic programs via linear decision rules.
+
+  Outside of work you'll find me on a tennis court or a golf course, or trying to learn
+  something new. If you work in RL or time series, I'd love to hear from you at
   <span class="mono">alberto (dot) gennaro (at) berkeley (dot) edu</span>.
 
 portrait: "/assets/img/portrait.jpeg"

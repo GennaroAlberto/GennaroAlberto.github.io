@@ -205,15 +205,11 @@ h1{
 }
 .intro p{
   font-family: var(--font-serif);
-  font-size: 19px;
-  line-height: 1.55;
+  font-size: 18px;
+  line-height: 1.6;
   color: var(--fg-soft);
   margin: 0 0 12px;
   letter-spacing: -0.005em;
-}
-.intro p:first-of-type{
-  font-size: 21px;
-  color: var(--fg);
 }
 .intro p:last-of-type{ margin-bottom: 0 }
 .intro strong{ color: var(--fg); font-weight: 600 }
@@ -228,8 +224,7 @@ h1{
   white-space: nowrap;
 }
 @media (max-width: 600px){
-  .intro p{ font-size: 17px }
-  .intro p:first-of-type{ font-size: 18.5px }
+  .intro p{ font-size: 16.5px }
 }
 
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px;justify-content:center}
