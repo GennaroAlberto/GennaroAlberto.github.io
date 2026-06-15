@@ -1,4 +1,4 @@
-# Personal site — alberto-gennaro.github.io
+# Personal site — gennaroalberto.github.io
 
 A simple Jekyll site. All content lives in `_data/resume.yml`; templates are in `_includes/` and `_layouts/`.
 

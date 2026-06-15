@@ -121,7 +121,7 @@ research_projects:
   - title: "Linear decision rules for multi-stage stochastic programs (M.Sc. thesis)"
     bullets:
       - "Tractable approximations of large-scale multi-stage stochastic programs via linear decision rules, applied to an assemble-to-order (ATO) problem."
-      - "Advised by Prof. Brandimarte and Prof. Fadda at Collegio Carlo Alberto."
+      - "Advised by Prof. Brandimarte and Prof. Fadda (Politecnico di Torino)."
       - "Repository cleaned and maintained by my collaborator [Daniele Gioia](https://github.com/DanieleGioia)."
     links:
       - { label: "ATO code", href: "https://github.com/DanieleGioia/ATO" }
