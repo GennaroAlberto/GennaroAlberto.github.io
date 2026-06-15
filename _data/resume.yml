@@ -13,7 +13,7 @@ intro: |
   under time and model uncertainty, with applications in financial engineering.
 
   Earlier I did my Bachelor's and M.Sc. in Mathematical Engineering at
-  <strong>Politecnico di Torino</strong>, followed by a second M.Sc. in Statistics and Applied
+  <strong>Politecnico di Torino</strong>, alongside a second M.Sc. in Statistics and Applied
   Math at <strong>Collegio Carlo Alberto</strong>. My thesis was advised by
   <strong>Prof. Brandimarte</strong> and <strong>Prof. Fadda</strong>, on tractable
   approximations of large-scale multi-stage stochastic programs via linear decision rules.
@@ -166,15 +166,36 @@ teaching:
     terms: "Spring 2026"
 
 experience:
-  - where: "J.P. Morgan Chase — ML Centre of Excellence (Time Series &amp; RL)"
-    location: "incoming"
+  - where: "J.P. Morgan Chase — ML Centre of Excellence"
+    role: "Senior Associate, Machine Learning"
+    team: "Time Series &amp; Reinforcement Learning"
+    location: "New York, NY"
     when: "2026 →"
-  - where: "Amazon — Applied Scientist Intern (SCOT)"
+    status: "incoming"
+    summary: |
+      Working across J.P. Morgan's main business lines — <strong>AWM</strong>
+      (Asset &amp; Wealth Management), <strong>CCB</strong> (Consumer &amp;
+      Community Banking) and <strong>CIB</strong> (Corporate &amp; Investment
+      Bank) — on reinforcement learning and time-dependent decision problems.
+
+  - where: "Amazon — SCOT (Supply Chain Optimization Technologies)"
+    role: "Applied Scientist Intern"
     location: "Bellevue, WA"
     when: "Jun 2025 – Aug 2025"
-  - where: "Kearney — Advanced Analytics Analyst"
+    summary: |
+      Worked on a very large-scale supply-chain optimization problem.
+      Added constraints to better model real-world operational scenarios, and
+      benchmarked the resulting solutions against simpler parametrized policies
+      and heuristics.
+
+  - where: "Kearney"
+    role: "Advanced Analytics Analyst"
     location: "Milan, Italy"
     when: "Jan 2021 – Jun 2021"
+    summary: |
+      Two forecasting projects: <strong>demand forecasting</strong> for goods,
+      and <strong>energy-load forecasting</strong> paired with predictive
+      maintenance on the underlying assets.
 
 education:
   - where: "UC Berkeley — Ph.D., Industrial Engineering & Operations Research"

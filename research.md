@@ -34,21 +34,6 @@ permalink: /research/
 </section>
 
 <section class="section reveal">
-  <h2>Experience</h2>
-  <div class="timeline">
-    {% for e in site.data.resume.experience %}
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-body">
-          <div class="tl-when">{{ e.when }}</div>
-          <div class="tl-where"><strong>{{ e.where }}</strong>{% if e.location %} <span class="muted">— {{ e.location }}</span>{% endif %}</div>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="section reveal">
   <h2>Education</h2>
   <div class="timeline">
     {% for ed in site.data.resume.education %}

@@ -10,6 +10,7 @@
   <nav class="nav-right" aria-label="Primary">
     <a href="{{ '/' | relative_url }}"        class="{% if page.url == '/' %}active{% endif %}">Home</a>
     <a href="{{ '/research/' | relative_url }}" class="{% if page.url contains '/research' %}active{% endif %}">Research</a>
+    <a href="{{ '/experience/' | relative_url }}" class="{% if page.url contains '/experience' %}active{% endif %}">Experience</a>
     <a href="{{ '/publications/' | relative_url }}" class="{% if page.url contains '/publications' %}active{% endif %}">Publications</a>
     <a class="pill" href="{{ '/#contact' | relative_url }}">Contact</a>
     <button id="themeToggle" class="iconbtn" type="button" aria-pressed="false" aria-label="Toggle color theme" title="Toggle theme">
