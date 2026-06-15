@@ -133,9 +133,9 @@ awards:
     when: "Oct 2025"
   - text: "Outstanding Graduate Student Instructor Award — UC Berkeley"
     when: "2025"
-  - text: "Nova 111 List — Italy"
+  - text: "Nova 111 Student List — Italy"
     when: "2022"
-    href: "https://www.novatalent.com/111-list/italy-2022"
+    href: "https://www.novatalent.com/111-list/student-italy-2022"
 
 teaching:
   - course: "INDENG 241"
