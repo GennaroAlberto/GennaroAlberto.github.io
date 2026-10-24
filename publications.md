@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Publications
+description: "Publications and preprints by Alberto Gennaro (UC Berkeley IEOR, J.P. Morgan)."
 permalink: /publications/
 ---
 

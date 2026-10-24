@@ -487,3 +487,160 @@ h1{
   h1{font-size:36px}
   .brand-text .brand{font-size:12.5px}
 }
+
+/* =========================================================
+   Self-exciting order flow (home page)
+   ========================================================= */
+:root{
+  --buy:  #2657ff;   /* bids, buy market orders  */
+  --sell: #b47b12;   /* asks, sell market orders */
+}
+html[data-theme="dark"]{
+  --buy:  #5f87ec;
+  --sell: #bb8a34;
+}
+
+/* The same process, running quietly behind the portrait */
+.hero-right{width:100%}
+.hero-flow{
+  position:absolute;left:0;top:50%;width:100%;height:220px;margin-top:-110px;
+  pointer-events:none;opacity:.6;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+          mask-image:linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+}
+@media (max-width: 860px){ .hero-flow{height:160px;margin-top:-80px} }
+
+/* Compact simulated book floating beside the portrait */
+.hero-book{
+  position:absolute;z-index:2;left:calc(100% - 34px);bottom:26px;width:184px;
+  display:block;line-height:1.4;text-align:left;color:var(--fg);
+  padding:9px 0 7px;border-radius:14px;
+  background:color-mix(in oklab, var(--card) 80%, transparent);
+  -webkit-backdrop-filter:blur(10px) saturate(140%);
+          backdrop-filter:blur(10px) saturate(140%);
+  border:1px solid var(--line);box-shadow:var(--shadow-lg);
+  transition:transform .15s ease, border-color .15s ease;
+}
+.hero-book:hover{text-decoration:none;transform:translateY(-2px);border-color:color-mix(in oklab, var(--accent) 35%, var(--line))}
+.hero-book:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.hb-head{display:flex;justify-content:space-between;align-items:center;padding:0 12px 6px;font-size:11px;color:var(--muted)}
+.hb-last{color:var(--fg);font-weight:600;font-variant-numeric:tabular-nums}
+.hb-tri{display:inline-block;width:0;height:0;margin-left:5px;vertical-align:1px;border-left:4px solid transparent;border-right:4px solid transparent}
+.hb-tri.up{border-bottom:6px solid var(--buy)}
+.hb-tri.down{border-top:6px solid var(--sell)}
+.hero-book .lob-row{height:20px;padding:0 12px;font-size:12px}
+.hero-book .lob-spread{margin:2px 0;padding:3px 12px;font-size:11px}
+@media (max-width: 860px){
+  .hero-book{left:auto;right:-70px;bottom:16px;width:130px;padding:7px 0 5px;border-radius:12px}
+  .hb-wide{display:none}
+  .hb-head{padding:0 10px 4px;font-size:10.5px}
+  .hero-book .lob-row{height:18px;padding:0 10px;font-size:11px}
+  .hero-book .lob-spread{padding:2px 10px;font-size:10.5px}
+}
+
+.flow-intro{max-width:68ch;margin:0 0 18px}
+.flow-intro p{margin:0 0 10px;color:var(--fg-soft);font-size:15px;line-height:1.65}
+.flow-intro .muted{color:var(--muted)}
+.flow-eq{
+  font-family:var(--font-serif);font-style:italic;
+  font-size:19px !important;color:var(--fg) !important;
+  letter-spacing:.01em;margin:4px 0 12px !important;
+}
+.flow-eq sub,.flow-eq sup{font-size:.68em}
+
+.flow-card{padding:0;overflow:hidden}
+.flow-card:hover{transform:none;box-shadow:var(--shadow);border-color:var(--line)}
+
+/* Controls: one row above the charts */
+.flow-controls{
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px;
+  padding:14px 18px;border-bottom:1px solid var(--line);
+}
+.flow-param{display:grid;grid-template-columns:auto 124px 3.6em;align-items:center;gap:10px;font-size:13.5px}
+.flow-param label{color:var(--fg-soft)}
+.flow-param output{color:var(--fg);font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+.flow-param input[type=range]{width:100%;accent-color:var(--accent);margin:0}
+.flow-actions{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
+.btn.sm{padding:7px 13px;font-size:13px}
+.btn:focus-visible,
+.flow-param input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.flow-body{display:grid;grid-template-columns:236px minmax(0,1fr)}
+
+/* Price ladder */
+.flow-book{border-right:1px solid var(--line);padding:12px 0 10px}
+.flow-book-head,.lob-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 16px;font-size:12.5px;font-variant-numeric:tabular-nums;
+}
+.flow-book-head{color:var(--muted);font-size:12px;margin-bottom:4px}
+.lob-row{position:relative;height:22px}
+.lob-row > span{position:relative}
+.lob-row .lob-bar,.lob-row .lob-flash{position:absolute;left:0;top:2px;bottom:2px}
+.lob-bar{width:0;border-radius:0 4px 4px 0;transition:width .06s linear}
+@media (prefers-reduced-motion: reduce){ .lob-bar{transition:none} }
+.lob-flash{right:0;opacity:0}
+.lob-row.ask .lob-bar{background:color-mix(in oklab, var(--sell) 24%, transparent)}
+.lob-row.bid .lob-bar{background:color-mix(in oklab, var(--buy) 20%, transparent)}
+.lob-row.ask .lob-flash{background:var(--sell)}
+.lob-row.bid .lob-flash{background:var(--buy)}
+.lob-px{color:var(--fg-soft)}
+.lob-qty{color:var(--fg);font-weight:500}
+.lob-row[data-k="0"] .lob-px{color:var(--fg);font-weight:600}
+.lob-spread{
+  margin:4px 0;padding:5px 16px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;white-space:pre;
+}
+.flow-book-key{display:flex;gap:16px;padding:8px 16px 0;font-size:12px;color:var(--muted)}
+.flow-book-key span{display:inline-flex;align-items:center;gap:6px}
+.swatch{display:inline-block;width:12px;height:10px;border-radius:2px}
+.swatch-ask{background:color-mix(in oklab, var(--sell) 45%, transparent)}
+.swatch-bid{background:color-mix(in oklab, var(--buy) 40%, transparent)}
+
+/* Charts */
+.flow-charts{padding:12px 16px 10px 18px;min-width:0}
+.flow-legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12.5px;color:var(--fg-soft);margin-bottom:8px}
+.flow-legend span{display:inline-flex;align-items:center;gap:7px}
+.key{display:inline-block;width:14px;height:0;border-top:2px solid currentColor;border-radius:2px}
+.key-buy{color:var(--buy)}
+.key-sell{color:var(--sell)}
+.key-mid{color:var(--fg-soft)}
+.flow-plot{position:relative;touch-action:pan-y}
+.flow-plot-label{font-size:12px;color:var(--muted);margin:2px 0 0}
+.flow-price{display:block;width:100%;height:178px;cursor:crosshair}
+.flow-lambda{display:block;width:100%;height:168px;cursor:crosshair}
+.flow-tip{
+  position:absolute;top:28px;z-index:2;pointer-events:none;min-width:168px;
+  padding:8px 10px;border-radius:10px;
+  background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);
+  font-size:12.5px;font-variant-numeric:tabular-nums;
+}
+.flow-tip[hidden]{display:none}
+.tip-time{color:var(--muted);margin-bottom:4px}
+.tip-row{display:flex;align-items:center;gap:8px;line-height:1.7}
+.tip-row b{color:var(--fg);font-weight:600;min-width:4.2em}
+.tip-row span{color:var(--fg-soft)}
+
+.flow-foot{
+  display:flex;flex-wrap:wrap;gap:6px 26px;
+  padding:11px 18px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--muted);
+}
+.flow-foot strong{color:var(--fg);font-weight:600;font-variant-numeric:tabular-nums}
+
+@media (max-width: 760px){
+  .flow-body{grid-template-columns:1fr}
+  .flow-book{border-right:none;border-bottom:1px solid var(--line)}
+  .lob-row[data-k="5"],.lob-row[data-k="6"],.lob-row[data-k="7"]{display:none}
+  .flow-charts{padding:12px 12px 10px}
+  .flow-param{grid-template-columns:8.5em minmax(0,1fr) 3.6em;width:100%}
+  .flow-actions{margin-left:0}
+  .flow-price{height:170px}
+  .flow-lambda{height:160px}
+}
+
+/* Particle field behind every page (particles.js, see assets/js/background.js) */
+.bg-particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg-particles canvas{display:block}
+.container{position:relative;z-index:1}

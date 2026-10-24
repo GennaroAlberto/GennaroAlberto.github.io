@@ -7,6 +7,19 @@ baseurl: ""
 theme: null
 markdown: kramdown
 permalink: pretty
+lang: en_US
+
+# Default share image (link previews / Google). jekyll-seo-tag makes it absolute.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/portrait.jpeg
+
+# Google Search Console ownership check: paste the content="..." value of the
+# HTML-tag method here, push, then click Verify in Search Console.
+# webmaster_verifications:
+#   google: PASTE_CODE_HERE
 timezone: America/New_York
 
 plugins:

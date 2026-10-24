@@ -1,5 +1,7 @@
 # Personal site — gennaroalberto.github.io
 
+**Live site: [gennaroalberto.github.io](https://gennaroalberto.github.io/)** · this repository holds its source.
+
 A simple Jekyll site. All content lives in `_data/resume.yml`; templates are in `_includes/` and `_layouts/`.
 
 ## Run it locally

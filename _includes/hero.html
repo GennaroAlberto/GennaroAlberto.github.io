@@ -6,9 +6,17 @@
   </div>
 
   <div class="hero-right">
+    <canvas class="hero-flow" data-flow="hero" aria-hidden="true"></canvas>
     <div class="portrait-wrap">
       <img class="portrait" src="{{ site.data.resume.portrait | relative_url }}" alt="Portrait of {{ site.title }}" />
       <span class="portrait-ring" aria-hidden="true"></span>
+      <a class="hero-book" href="#order-flow" data-flow="hero-book" aria-label="Simulated limit order book. Jump to the live simulation.">
+        <div class="hb-head" aria-hidden="true">
+          <span>Simulated<span class="hb-wide"> book</span></span>
+          <span><b class="hb-last">—</b><i class="hb-tri"></i></span>
+        </div>
+        <div class="lob" aria-hidden="true"></div>
+      </a>
     </div>
   </div>
 

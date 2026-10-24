@@ -1,0 +1,73 @@
+<section class="section flow reveal" id="order-flow" aria-labelledby="flow-title">
+  <div class="section-head">
+    <h2 id="flow-title">Self-exciting order flow</h2>
+    <span class="muted small">A limit order book, simulated live in your browser</span>
+  </div>
+
+  <div class="flow-intro">
+    <p>
+      Six kinds of order (market, limit and cancel, on each side of the book) arrive as a
+      multivariate Hawkes process. Every order briefly raises the arrival rate of the others,
+      so trading comes in bursts rather than at a steady pace.
+    </p>
+    <p class="flow-eq" role="math" aria-label="lambda i of t equals mu i plus the sum over j of the integral from 0 to t of alpha i j times e to the minus beta times t minus s, d N j of s">
+      λ<sub>i</sub>(t) = μ<sub>i</sub> + Σ<sub>j</sub> ∫<sub>0</sub><sup>t</sup> α<sub>ij</sub> e<sup>−β(t−s)</sup> dN<sub>j</sub>(s)
+    </p>
+    <p class="muted small">
+      The branching ratio is the average number of orders each order sets off (the spectral
+      radius of α/β). Push it towards 1 and the bursts start feeding on themselves.
+    </p>
+  </div>
+
+  <div class="card flow-card" data-flow="panel">
+    <div class="flow-controls">
+      <div class="flow-param">
+        <label for="flow-n">Branching ratio</label>
+        <input id="flow-n" type="range" min="0" max="0.95" step="0.01" value="0.75" />
+        <output id="flow-n-out" for="flow-n">0.75</output>
+      </div>
+      <div class="flow-param">
+        <label for="flow-h">Memory half-life</label>
+        <input id="flow-h" type="range" min="0.1" max="3" step="0.05" value="0.7" />
+        <output id="flow-h-out" for="flow-h">0.70 s</output>
+      </div>
+      <div class="flow-actions">
+        <button type="button" class="btn ghost sm" data-act="buy" title="Send one large market buy that clears the first four ask levels">Buy sweep</button>
+        <button type="button" class="btn ghost sm" data-act="sell" title="Send one large market sell that clears the first four bid levels">Sell sweep</button>
+        <button type="button" class="btn ghost sm" data-act="pause" aria-pressed="false">Pause</button>
+      </div>
+    </div>
+
+    <div class="flow-body">
+      <div class="flow-book">
+        <div class="flow-book-head"><span>Price</span><span>Size</span></div>
+        <div class="lob" aria-hidden="true"></div>
+        <div class="flow-book-key">
+          <span><i class="swatch swatch-ask"></i>Asks</span>
+          <span><i class="swatch swatch-bid"></i>Bids</span>
+        </div>
+      </div>
+
+      <div class="flow-charts">
+        <div class="flow-legend">
+          <span><i class="key key-buy"></i>Buy market orders</span>
+          <span><i class="key key-sell"></i>Sell market orders</span>
+          <span><i class="key key-mid"></i>Mid price and bid–ask band</span>
+        </div>
+        <div class="flow-plot">
+          <div class="flow-plot-label">Trades, sized by volume</div>
+          <canvas class="flow-price" role="img" aria-label="Mid price and bid–ask band over the last 30 seconds, with each trade drawn as a dot sized by its volume."></canvas>
+          <div class="flow-plot-label">Arrival rate λ(t) of market orders</div>
+          <canvas class="flow-lambda" role="img" aria-label="Arrival rates of buy and sell market orders over the last 30 seconds, with a tick for each arrival."></canvas>
+          <div class="flow-tip" hidden></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-foot">
+      <span>Order rate <strong data-out="obs">—</strong> over the last minute</span>
+      <span>Stationary rate <strong data-out="theory">—</strong>, from 1ᵀ(I − α/β)⁻¹μ</span>
+    </div>
+  </div>
+</section>
+<script src="{{ '/assets/js/orderflow.js' | relative_url }}" defer></script>

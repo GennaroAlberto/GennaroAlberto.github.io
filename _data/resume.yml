@@ -1,11 +1,11 @@
 first_name: "Alberto"
 last_name: "Gennaro"
-kicker: "Incoming Senior Associate · J.P. Morgan Chase — ML Centre of Excellence (Time Series &amp; RL), NYC<br />Ph.D., UC Berkeley IEOR"
+kicker: "Senior Associate · J.P. Morgan Chase — ML Centre of Excellence (Time Series &amp; RL), NYC<br />Ph.D., UC Berkeley IEOR"
 
 # Intro paragraph rendered on the home page. HTML allowed.
 intro: |
-  Hi, I'm Alberto. I'm about to join <strong>J.P. Morgan's ML Centre of Excellence</strong>
-  in New York as a <strong>Senior Associate in Machine Learning</strong>, on the Time Series
+  Hi, I'm Alberto. I'm a <strong>Senior Associate in Machine Learning</strong> at
+  <strong>J.P. Morgan's ML Centre of Excellence</strong> in New York, on the Time Series
   and Reinforcement Learning team.
 
   Before that, I did my Ph.D. at <strong>UC Berkeley IEOR</strong>, advised by
@@ -53,8 +53,8 @@ research_focus: "Sequential decision-making under uncertainty: time-series forec
 
 # News / highlights — most recent first
 news:
-  - when: "Soon"
-    what: "Joining <strong>J.P. Morgan Chase — ML Centre of Excellence</strong>, on the Time Series &amp; Reinforcement Learning team."
+  - when: "Aug 2026"
+    what: "Joined <strong>J.P. Morgan Chase — ML Centre of Excellence</strong>, on the Time Series &amp; Reinforcement Learning team."
   - when: "May 2026"
     what: "Ph.D. defended at UC Berkeley IEOR. Also: invited talk at Bachelier FS26 (Bologna)."
   - when: "2026"
@@ -170,8 +170,7 @@ experience:
     role: "Senior Associate, Machine Learning"
     team: "Time Series &amp; Reinforcement Learning"
     location: "New York, NY"
-    when: "2026 →"
-    status: "incoming"
+    when: "Aug 2026 →"
     summary: |
       Working across J.P. Morgan's main business lines — <strong>AWM</strong>
       (Asset &amp; Wealth Management), <strong>CCB</strong> (Consumer &amp;

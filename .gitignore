@@ -7,7 +7,7 @@ _site/
 # Local dev / scratch
 _preview/
 data/
-vendor/
+/vendor/
 .bundle/
 node_modules/
 

@@ -1,9 +1,15 @@
 ---
 layout: default
-title: Home
+title: Alberto Gennaro
+description: "Alberto Gennaro — Senior Associate in Machine Learning at J.P. Morgan's ML Centre of Excellence (NYC). Ph.D. in stochastic optimal control, UC Berkeley IEOR."
+seo:
+  type: Person
+  name: Alberto Gennaro
 ---
 
 {% include hero.html %}
+
+{% include orderflow.html %}
 
 <section class="section reveal">
   <div class="section-head">

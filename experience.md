@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Experience
+description: "Experience of Alberto Gennaro: J.P. Morgan Chase ML Centre of Excellence, Amazon, UC Berkeley IEOR and more."
 permalink: /experience/
 ---
 

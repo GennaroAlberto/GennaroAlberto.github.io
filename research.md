@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Research
+description: "Research by Alberto Gennaro on stochastic optimal control, reinforcement learning and time-series methods."
 permalink: /research/
 ---
 
