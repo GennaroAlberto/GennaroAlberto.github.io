@@ -644,3 +644,8 @@ html[data-theme="dark"]{
 .bg-particles{position:fixed;inset:0;z-index:0;pointer-events:none}
 .bg-particles canvas{display:block}
 .container{position:relative;z-index:1}
+
+/* Research interests (Research page) */
+.interests-intro{max-width:68ch;margin:0 0 18px;color:var(--fg-soft);font-size:16px;line-height:1.7}
+.card.theme h3{margin:0 0 6px}
+.card.theme p{margin:0;font-size:14.5px;line-height:1.6;color:var(--fg-soft)}

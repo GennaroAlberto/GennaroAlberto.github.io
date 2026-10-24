@@ -9,14 +9,13 @@ intro: |
   and Reinforcement Learning team.
 
   Before that, I did my Ph.D. at <strong>UC Berkeley IEOR</strong>, advised by
-  <strong>Prof. Thibaut Mastrolia</strong>. My research focused on stochastic optimal control
-  under time and model uncertainty, with applications in financial engineering.
+  <strong>Prof. Thibaut Mastrolia</strong>, on stochastic optimal control under model and
+  time uncertainty. My research now centers on control and reinforcement learning for
+  path-dependent systems with jumps, where path signatures do much of the work.
 
-  Earlier I did my Bachelor's and M.Sc. in Mathematical Engineering at
-  <strong>Politecnico di Torino</strong>, alongside a second M.Sc. in Statistics and Applied
-  Math at <strong>Collegio Carlo Alberto</strong>. My thesis was advised by
-  <strong>Prof. Brandimarte</strong> and <strong>Prof. Fadda</strong>, on tractable
-  approximations of large-scale multi-stage stochastic programs via linear decision rules.
+  Earlier I studied Mathematical Engineering at <strong>Politecnico di Torino</strong> and
+  Statistics and Applied Math at <strong>Collegio Carlo Alberto</strong>, where I worked on
+  stochastic programming.
 
   Outside of work you'll find me on a tennis court or a golf course, or trying to learn
   something new. If you work in RL or time series, I'd love to hear from you at
@@ -43,22 +42,43 @@ links:
     icon:  "berkeley"
 
 chips:
-  - "Time Series"
-  - "Reinforcement Learning"
   - "Stochastic Control"
-  - "ML / Deep Learning"
-  - "Numerical PDEs"
+  - "Reinforcement Learning"
+  - "Path Signatures"
+  - "Jump Processes"
+  - "Time Series"
 
-research_focus: "Sequential decision-making under uncertainty: time-series forecasting, reinforcement learning, stochastic control with uncertain horizon, and the numerical methods that make them computable."
+research_focus: "Stochastic control and reinforcement learning when the past matters and the path jumps."
+
+# Research interests: Research page section and the home-page card.
+research_interests:
+  intro: |
+    I work on control and reinforcement learning for systems whose state is a whole path
+    rather than a point. Decisions depend on the history of the process, and that history
+    jumps: orders arrive in bursts, defaults happen, regimes switch. Path signatures give a
+    model-agnostic way to describe such histories, including paths with jumps, and they are
+    the common thread of my recent work.
+  themes:
+    - title: "Control and RL on path space"
+      text: "Policies that read the signature of the observed history, for non-Markovian problems where no small state summarizes the past."
+      short: "Control and RL on path space, with signature-based policies."
+    - title: "Jumps and event streams"
+      text: "Signatures of paths with jumps and point processes, with self-exciting (Hawkes) order flow and market making as a running example."
+      short: "Jumps and event streams: point processes and order flow."
+    - title: "Robustness to the model and the clock"
+      text: "Control under uncertainty in the volatility and in the time horizon, through second-order BSDEs."
+      short: "Robust control under model and horizon uncertainty, via 2BSDEs."
 
 # News / highlights — most recent first
 news:
+  - when: "Oct 2026"
+    what: "<em>Signature Methods for Optimal Market Making</em> (with T. Mastrolia and F. Primavera) accepted at <strong>ICAIF '26</strong> in Milan, with an oral presentation."
   - when: "Aug 2026"
     what: "Joined <strong>J.P. Morgan Chase — ML Centre of Excellence</strong>, on the Time Series &amp; Reinforcement Learning team."
   - when: "May 2026"
     what: "Ph.D. defended at UC Berkeley IEOR. Also: invited talk at Bachelier FS26 (Bologna)."
   - when: "2026"
-    what: "<em>Delegated portfolio management with random default</em> accepted for publication in <em>Mathematical Finance</em>."
+    what: "<em>Delegated portfolio management with random default</em> (with T. Mastrolia) published in <em>Mathematical Finance</em>."
   - when: "Oct 2025"
     what: "<strong>2nd place</strong> at the <strong>INFORMS RAS Problem Solving Competition</strong> (with team MathConvoy), INFORMS Annual Meeting."
   - when: "Aug 2025"
@@ -70,8 +90,28 @@ news:
 
 # Publications — newest first
 publications:
+  - title: "Signature Methods for Optimal Market Making"
+    authors: "A. Gennaro, T. Mastrolia, F. Primavera"
+    venue: "ICAIF '26, ACM International Conference on AI in Finance, Milan · Oral presentation · arXiv:2606.19772"
+    year: 2026
+    status: "oral"
+    summary: "Bid and ask quotes for a mean–variance market maker, learned as functions of the signature of the order-flow path. The problem reduces to a pseudo-linear optimization over the expected signature, solved with Sig-REINFORCE under Poisson and Hawkes order flow and benchmarked against PPO."
+    links:
+      - { label: "arXiv", href: "https://arxiv.org/abs/2606.19772" }
+      - { label: "PDF",   href: "https://arxiv.org/pdf/2606.19772" }
+  - title: "Delegated portfolio management with random default"
+    authors: "A. Gennaro, T. Mastrolia"
+    venue: "<em>Mathematical Finance</em> · arXiv:2410.13103"
+    year: 2026
+    status: "published"
+    summary: "Principal–agent problem with a Second Order BSDE under default risk; derive a new HJB PDE and solve it numerically with an iterative PINN."
+    links:
+      - { label: "Journal", href: "https://doi.org/10.1111/mafi.70047" }
+      - { label: "arXiv", href: "https://arxiv.org/abs/2410.13103" }
+      - { label: "PDF",   href: "https://arxiv.org/pdf/2410.13103" }
+      - { label: "Code",  href: "https://github.com/GennaroAlberto/PrincipalAgent" }
   - title: "2BSDE with uncertain horizon and application to stochastic control in erratic environments"
-    authors: "A. Gennaro"
+    authors: "A. Gennaro, T. Mastrolia"
     venue: "Preprint · arXiv:2506.15037"
     year: 2025
     status: "preprint"
@@ -79,52 +119,36 @@ publications:
     links:
       - { label: "arXiv", href: "https://arxiv.org/abs/2506.15037" }
       - { label: "PDF",   href: "https://arxiv.org/pdf/2506.15037" }
-  - title: "Delegated portfolio management with random default"
-    authors: "A. Gennaro, T. Mastrolia"
-    venue: "To appear in <em>Mathematical Finance</em> · arXiv:2410.13103"
-    year: 2024
-    status: "to appear"
-    summary: "Principal–agent problem with a Second Order BSDE under default risk; derive a new HJB PDE and solve it numerically with an iterative PINN."
-    links:
-      - { label: "arXiv", href: "https://arxiv.org/abs/2410.13103" }
-      - { label: "PDF",   href: "https://arxiv.org/pdf/2410.13103" }
-      - { label: "Code",  href: "https://github.com/GennaroAlberto/PrincipalAgent" }
 
 research_projects:
-  - title: "Signature methods for optimal control"
-    status: "in progress"
+  - title: "Signature methods for optimal market making"
+    status: "ICAIF '26 oral"
     bullets:
-      - "Using path signatures (rough path theory) to learn approximate-optimal policies directly from time-series via REINFORCE."
-      - "Connects modern ML with classical stochastic control."
+      - "Quotes learned as functions of the signature of the order-flow path, jumps included."
+      - "Sig-REINFORCE under Poisson and self-exciting Hawkes order flow, benchmarked against PPO."
+      - "With Thibaut Mastrolia and Francesca Primavera; oral presentation at ICAIF '26 in Milan."
     links:
-      - { label: "Code (sigReinforce)", href: "https://github.com/GennaroAlberto/sigReinforce" }
+      - { label: "arXiv", href: "https://arxiv.org/abs/2606.19772" }
   - title: "Delegating portfolio management under time uncertainty"
     bullets:
       - "Principal–agent theory with a Second Order BSDE (2BSDE) under default risk; new HJB PDE."
       - "Iterative Physics-Informed Neural Network (PINN) solver in TensorFlow."
       - "Best Paper Finalist (top 6) at SIAM Conference on Financial Mathematics 2025."
     links:
+      - { label: "Mathematical Finance", href: "https://doi.org/10.1111/mafi.70047" }
       - { label: "Paper code", href: "https://github.com/GennaroAlberto/PrincipalAgent" }
   - title: "2BSDE with uncertain horizon and control in erratic environments"
     bullets:
       - "Existence and uniqueness for a class of non-Markovian 2BSDEs with random horizon."
       - "Framework for robust control under both volatility and time uncertainty."
-  - title: "Predictive maintenance for rail systems — INFORMS RAS 2025"
-    status: "2nd place"
+  - title: "Earlier work in operations research"
     bullets:
-      - "With my team MathConvoy, we placed second at the [INFORMS RAS 2025 Problem Solving Competition](https://connect.informs.org/discussion/2025-informs-ras-problem-solving-competition-1) at the 2025 INFORMS Annual Meeting."
-      - "Using operations research and advanced analytical approaches, we created a predictive maintenance tool for rail systems. Using wheel-profile data, mileage, railcar attributes and other sensor measurements, the tool predicts wheel failures on commercial trains."
-      - "Joint work with my teammates [Daniele Gioia](https://github.com/DanieleGioia), Jacopo Bonari, and Edoardo Fadda; the team code is shared in Daniele's repository."
+      - "2nd place at the INFORMS RAS 2025 Problem Solving Competition with team MathConvoy: predicting railcar wheel failures from sensor data."
+      - "M.Sc. thesis on linear decision rules for large-scale multi-stage stochastic programs, with Prof. Brandimarte and Prof. Fadda."
     links:
-      - { label: "Competition", href: "https://connect.informs.org/discussion/2025-informs-ras-problem-solving-competition-1" }
-      - { label: "Team code (shared)", href: "https://github.com/DanieleGioia/RAS2025" }
-  - title: "Linear decision rules for multi-stage stochastic programs (M.Sc. thesis)"
-    bullets:
-      - "Tractable approximations of large-scale multi-stage stochastic programs via linear decision rules, applied to an assemble-to-order (ATO) problem."
-      - "Advised by Prof. Brandimarte and Prof. Fadda (Politecnico di Torino)."
-      - "Repository cleaned and maintained by my collaborator [Daniele Gioia](https://github.com/DanieleGioia)."
-    links:
-      - { label: "ATO code", href: "https://github.com/DanieleGioia/ATO" }
+      - { label: "RAS competition", href: "https://connect.informs.org/discussion/2025-informs-ras-problem-solving-competition-1" }
+      - { label: "RAS code (D. Gioia)", href: "https://github.com/DanieleGioia/RAS2025" }
+      - { label: "Thesis code (D. Gioia)", href: "https://github.com/DanieleGioia/ATO" }
 
 awards:
   - text: "Best Paper Finalist (top 6) — SIAM Conference on Financial Mathematics"
@@ -182,10 +206,8 @@ experience:
     location: "Bellevue, WA"
     when: "Jun 2025 – Aug 2025"
     summary: |
-      Worked on a very large-scale supply-chain optimization problem.
-      Added constraints to better model real-world operational scenarios, and
-      benchmarked the resulting solutions against simpler parametrized policies
-      and heuristics.
+      Large-scale supply-chain optimization: added operational constraints and
+      benchmarked against parametrized policies and heuristics.
 
   - where: "Kearney"
     role: "Advanced Analytics Analyst"
@@ -210,6 +232,7 @@ talks:
     - "SIAM FM25 — Miami"
     - "WCMF25 — USC, Los Angeles"
   other:
+    - "ICAIF '26 — Milan, Nov 2026 (oral)"
     - "Berkeley–Columbia Meeting in Engineering &amp; Statistics — 2025"
     - "INFORMS25 — RAS Problem Solving Competition (2nd place), 2025"
     - "Berkeley CREST Cyber-Risk Conference — 2023"

@@ -1,13 +1,26 @@
 ---
 layout: default
 title: Research
-description: "Research by Alberto Gennaro on stochastic optimal control, reinforcement learning and time-series methods."
+description: "Research by Alberto Gennaro on stochastic control and reinforcement learning with path signatures and jumps."
 permalink: /research/
 ---
 
 <section class="section page-head reveal">
   <h2>Research</h2>
   <p class="lead">{{ site.data.resume.research_focus }}</p>
+</section>
+
+<section class="section reveal">
+  <h2>Research interests</h2>
+  <p class="interests-intro">{{ site.data.resume.research_interests.intro }}</p>
+  <div class="grid-3">
+    {% for th in site.data.resume.research_interests.themes %}
+      <div class="card theme">
+        <h3>{{ th.title }}</h3>
+        <p>{{ th.text }}</p>
+      </div>
+    {% endfor %}
+  </div>
 </section>
 
 <section class="section reveal">

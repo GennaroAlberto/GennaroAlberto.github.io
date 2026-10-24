@@ -35,7 +35,9 @@
       shape: { type: "circle" },
       opacity: { value: OPACITY, random: false, anim: { enable: false } },
       size: { value: 2.6, random: true, anim: { enable: false } },
-      line_linked: { enable: true, distance: 140, color: T.line, opacity: 0.22, width: 1 },
+      // color_rgb_line is passed up front: particles.js only derives it after its first draw,
+      // which throws when motion is off (reduced-motion visitors).
+      line_linked: { enable: true, distance: 140, color: T.line, color_rgb_line: rgb(T.line), opacity: 0.22, width: 1 },
       move: { enable: !reduce, speed: 0.7, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
     },
     interactivity: {

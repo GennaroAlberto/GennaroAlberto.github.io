@@ -39,9 +39,7 @@ seo:
       <h3>What I work on</h3>
       <p class="muted">{{ site.data.resume.research_focus }}</p>
       <ul class="tight">
-        <li>Time-series forecasting and policy learning from sequential data.</li>
-        <li>Reinforcement learning for control — including signature-based methods.</li>
-        <li>Stochastic control with uncertain horizons; PINN solvers for HJB-type PDEs.</li>
+        {% for th in site.data.resume.research_interests.themes %}<li>{{ th.short }}</li>{% endfor %}
       </ul>
     </div>
 
