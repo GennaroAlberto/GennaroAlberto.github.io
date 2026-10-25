@@ -85,7 +85,7 @@
     if (opts) for (var key in opts) cfg[key] = opts[key];
     var RHO0 = spectralRadius(G0);
     var K = 40;                      // price levels tracked on each side
-    var KEEP = 65, KEEP_BOOK = 35, RATE_WIN = 60;
+    var KEEP = 190, KEEP_BOOK = 35, RATE_WIN = 60;
 
     var n = 0.75, half = 0.7, beta = Math.LN2 / half;
     var G = [], alpha = [];
@@ -103,6 +103,8 @@
     var trades = [];                        // {t, px, size, side}
     var marks = [];                         // {t, side} market-order arrivals
     var arrivals = [];                      // all endogenous arrivals (rate estimate)
+    var CANDLE = 3;                         // seconds of simulated time per candle
+    var candles = [];                       // {k, o, h, l, c}: bucket k covers [k, k+1) * CANDLE
 
     var eng = { onFill: null };
 
@@ -139,6 +141,16 @@
     function shiftOut(q) { for (var k = 0; k < K - 1; k++) q[k] = q[k + 1]; q[K - 1] = depthAt(K - 1); }
     function shiftIn(q) { for (var k = K - 1; k > 0; k--) q[k] = q[k - 1]; q[0] = 0; }
 
+    function candleAt(tt, px) {
+      var k = Math.floor(tt / CANDLE), last = candles.length ? candles[candles.length - 1] : null;
+      if (last && last.k === k) return last;
+      var open = last ? last.c : (px != null ? px : (bestBid + bestAsk) / 2);
+      if (last) for (var j = last.k + 1; j < k; j++) candles.push({ k: j, o: open, h: open, l: open, c: open });
+      var c = { k: k, o: open, h: open, l: open, c: open };
+      candles.push(c);
+      return c;
+    }
+
     function clearTouch(side) {
       // side > 0: the ask touch emptied; side < 0: the bid touch emptied.
       var q = side > 0 ? asks : bids;
@@ -151,12 +163,16 @@
     function marketOrder(side, size) {
       // side > 0 lifts the asks, side < 0 hits the bids.
       var q = side > 0 ? asks : bids, rem = size, notional = 0, filled = 0, levels = 0;
+      var c = candleAt(t, side > 0 ? bestAsk : bestBid), px = 0;
       while (rem > 0) {
-        var px = side > 0 ? bestAsk : bestBid;
+        px = side > 0 ? bestAsk : bestBid;
         var take = Math.min(q[0], rem);
         q[0] -= take; rem -= take; notional += take * px; filled += take; levels++;
+        if (px > c.h) c.h = px;
+        if (px < c.l) c.l = px;
         if (q[0] <= 0) clearTouch(side);
       }
+      c.c = px;                                    // close at the last fill
       var tr = { t: t, px: notional / filled, size: filled, side: side };
       trades.push(tr);
       marks.push({ t: t, side: side });
@@ -223,6 +239,9 @@
       if (kb > 0) { B.t.splice(0, kb); B.bid.splice(0, kb); B.ask.splice(0, kb); }
       trimObjs(trades, t - KEEP_BOOK);
       trimObjs(marks, t - KEEP);
+      var kc = 0;
+      while (kc < candles.length && (candles[kc].k + 1) * CANDLE < t - KEEP) kc++;
+      if (kc > 0) candles.splice(0, kc);
       var ka = lowerBound(arrivals, t - RATE_WIN);
       if (ka > 0) arrivals.splice(0, ka);
     }
@@ -244,6 +263,7 @@
       }
       decay(tEnd - t); t = tEnd;
       sample(); quote();
+      candleAt(t, null);                           // keep the time axis going between trades
       if (t - lastTrim > 0.5) trim();
     };
 
@@ -285,6 +305,7 @@
     eng.time = function () { return t; };
     eng.book = function () { return { bestBid: bestBid, bestAsk: bestAsk, asks: asks, bids: bids }; };
     eng.H = H; eng.B = B; eng.trades = trades; eng.marks = marks; eng.MU = MU;
+    eng.candles = candles; eng.CANDLE = CANDLE;
 
     for (var k = 0; k < K; k++) { asks[k] = depthAt(k); bids[k] = depthAt(k); }
     rebuild(); sample(); quote();
@@ -305,14 +326,16 @@
   if (!panel && !strip) return;
 
   var eng = createEngine();
-  var WIN = 30, HERO_WIN = 60, LEVELS = 8, TICK = 0.01;
+  var WIN = 30, HERO_WIN = 180, LEVELS = 8, TICK = 0.01;
   var reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   var paused = reduce;
   var C = {};
   var FONT = "11px Inter, ui-sans-serif, system-ui, -apple-system, sans-serif";
 
-  // Warm up so the charts open full.
-  for (var w = 0; w < HERO_WIN + 5; w += 1 / 30) eng.advance(1 / 30);
+  // Warm up so the charts open full: coarse steps for the older part of the hero
+  // window, frame-sized steps for the last minute that the section's charts show.
+  for (var w = 0; w < HERO_WIN - 60; w += 0.1) eng.advance(0.1);
+  for (w = 0; w < 65; w += 1 / 30) eng.advance(1 / 30);
 
   function readTheme() {
     var cs = getComputedStyle(document.documentElement);
@@ -363,6 +386,19 @@
       prev = y;
     }
     if (!first && xEnd != null) ctx.lineTo(xEnd, prev);
+  }
+
+  // One point per pixel column, keeping the column's maximum, so bursts survive thinning.
+  function linePathMax(ctx, tArr, vArr, i0, X, Y) {
+    var col = null, best = 0, first = true;
+    for (var i = i0; i <= tArr.length; i++) {
+      var x = i < tArr.length ? Math.round(X(tArr[i])) : null;
+      if (x !== col || i === tArr.length) {
+        if (col !== null) { if (first) { ctx.moveTo(col, Y(best)); first = false; } else ctx.lineTo(col, Y(best)); }
+        if (i === tArr.length) break;
+        col = x; best = vArr[i];
+      } else if (vArr[i] > best) best = vArr[i];
+    }
   }
 
   function linePath(ctx, tArr, vArr, i0, X, Y) {
@@ -648,16 +684,46 @@
 
   function drawHero() {
     var o = S.c, ctx = o.ctx, w = o.w, h = o.h, now = eng.time(), H = eng.H, i;
-    var t0 = now - HERO_WIN, y0 = h * 0.12, y1 = h * 0.88;
+    // The window scales with the width so candles keep the same size on every screen
+    // (about 3 minutes on a desktop, a bit over 1 minute on a phone).
+    var win = Math.max(60, Math.min(HERO_WIN, Math.round(w / 5.5)));
+    var right = w * 0.965, t0 = now - win;          // "now" sits just inside the right fade
     ctx.clearRect(0, 0, w, h);
-    function X(t) { return (t - t0) / HERO_WIN * w; }
+    function X(t) { return (t - t0) / win * right; }
+
+    // Candlesticks of the simulated price, upper 60% of the band.
+    var cy0 = h * 0.04, cy1 = h * 0.62, cs = eng.candles, dt = eng.CANDLE, lo = Infinity, hi = -Infinity;
+    for (i = 0; i < cs.length; i++) {
+      if ((cs[i].k + 1) * dt < t0) continue;
+      if (cs[i].l < lo) lo = cs[i].l;
+      if (cs[i].h > hi) hi = cs[i].h;
+    }
+    if (isFinite(lo)) {
+      var mid = (lo + hi) / 2, span = Math.max(10, (hi - lo) * 1.12);
+      var plo = smooth(S.s, "plo", mid - span / 2, 0.05), phi = smooth(S.s, "phi", mid + span / 2, 0.05);
+      var Yp = function (p) { return cy1 - (p - plo) / (phi - plo) * (cy1 - cy0); };
+      var slot = dt / win * right, bw = Math.max(2, slot * 0.62);
+      ctx.globalAlpha = 0.8;
+      for (i = 0; i < cs.length; i++) {
+        var cd = cs[i], xs = X((cd.k + 0.5) * dt);
+        if (xs < -slot || xs > right + slot) continue;
+        var up = cd.c >= cd.o, col = up ? C.buy : C.sell;
+        ctx.fillStyle = col; ctx.strokeStyle = col; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(Math.round(xs) + 0.5, Yp(cd.h)); ctx.lineTo(Math.round(xs) + 0.5, Yp(cd.l)); ctx.stroke();
+        var yo = Yp(cd.o), yc = Yp(cd.c), yt = Math.min(yo, yc), bh = Math.max(1.5, Math.abs(yc - yo));
+        ctx.fillRect(xs - bw / 2, yt, bw, bh);
+      }
+    }
+
+    // Arrival intensity of buy and sell market orders, lower band (like a volume panel).
+    var ly0 = h * 0.70, ly1 = h * 0.97;
     var i0 = Math.max(0, lowerBound(H.t, t0) - 1), top = 0;
     for (i = i0; i < H.t.length; i++) { if (H.b[i] > top) top = H.b[i]; if (H.s[i] > top) top = H.s[i]; }
     var ymax = smooth(S.s, "max", Math.max(2, top * 1.1), 0.04);
-    function Y(v) { return y1 - v / ymax * (y1 - y0); }
-    ctx.lineWidth = 1.5; ctx.lineJoin = "round"; ctx.globalAlpha = 0.85;
-    ctx.beginPath(); linePath(ctx, H.t, H.s, i0, X, Y); ctx.strokeStyle = C.sell; ctx.stroke();
-    ctx.beginPath(); linePath(ctx, H.t, H.b, i0, X, Y); ctx.strokeStyle = C.buy; ctx.stroke();
+    function Y(v) { return ly1 - v / ymax * (ly1 - ly0); }
+    ctx.lineWidth = 1.3; ctx.lineJoin = "round"; ctx.globalAlpha = 0.75;
+    ctx.beginPath(); linePathMax(ctx, H.t, H.s, i0, X, Y); ctx.strokeStyle = C.sell; ctx.stroke();
+    ctx.beginPath(); linePathMax(ctx, H.t, H.b, i0, X, Y); ctx.strokeStyle = C.buy; ctx.stroke();
     ctx.globalAlpha = 1;
   }
 

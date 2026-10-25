@@ -503,12 +503,12 @@ html[data-theme="dark"]{
 /* The same process, running quietly behind the portrait */
 .hero-right{width:100%}
 .hero-flow{
-  position:absolute;left:0;top:50%;width:100%;height:220px;margin-top:-110px;
+  position:absolute;left:0;top:50%;width:100%;height:260px;margin-top:-130px;
   pointer-events:none;opacity:.6;
-  -webkit-mask-image:linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
-          mask-image:linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 16%, #000 90%, transparent);
+          mask-image:linear-gradient(90deg, transparent, #000 16%, #000 90%, transparent);
 }
-@media (max-width: 860px){ .hero-flow{height:160px;margin-top:-80px} }
+@media (max-width: 860px){ .hero-flow{height:190px;margin-top:-95px} }
 
 /* Compact simulated book floating beside the portrait */
 .hero-book{
