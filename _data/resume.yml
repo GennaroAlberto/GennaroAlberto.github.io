@@ -161,6 +161,33 @@ awards:
     when: "2022"
     href: "https://www.novatalent.com/111-list/student-italy-2022"
 
+# Teaching page: intro and the open course notes (one card per repository).
+teaching_intro: >-
+  I am turning the courses I taught at UC Berkeley into open lecture notes: complete
+  proofs, exercises, and interactive Python notebooks that open in Colab. Solutions are
+  not published, so that the courses are not spoiled for future students.
+
+course_notes:
+  - course: "IEOR 222"
+    title: "Financial Engineering"
+    status: "In progress"
+    text: >-
+      From probability as information, martingales and arbitrage to the binomial model,
+      Brownian motion, stochastic calculus and risk-neutral pricing, with extra chapters
+      on arbitrage-free option surfaces, Hawkes processes, rough volatility and signatures.
+    repo: "https://github.com/GennaroAlberto/ieor222-financial-engineering"
+    site: "https://gennaroalberto.github.io/ieor222-financial-engineering/"
+  - course: "MFE 230D"
+    title: "Derivatives: Quantitative Methods"
+    status: "In preparation"
+    text: >-
+      Static arbitrage and replication, Monte Carlo and variance reduction, Greeks by
+      simulation, path-dependent and multi-asset options, stochastic volatility and
+      numerical grids.
+    repo: "https://github.com/GennaroAlberto/mfe230d-derivatives"
+    site: "https://gennaroalberto.github.io/mfe230d-derivatives/"
+
+# Courses taught (Teaching page).
 teaching:
   - course: "INDENG 241"
     title: "Risk Modeling, Simulation, and Data Analysis"

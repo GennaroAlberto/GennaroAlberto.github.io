@@ -63,27 +63,6 @@ permalink: /research/
 </section>
 
 <section class="section reveal">
-  <h2>Teaching</h2>
-  <div class="card">
-    <ul class="teach-list">
-      {% for t in site.data.resume.teaching %}
-        <li class="teach-item">
-          <div class="teach-line">
-            <span class="teach-code">{{ t.course }}</span>
-            <span class="teach-title">{{ t.title }}</span>
-          </div>
-          <div class="teach-meta">
-            <span class="teach-role {% if t.role == 'Lecturer' %}lect{% endif %}">{{ t.role }}</span>
-            <span class="muted">{{ t.terms }}</span>
-            {% if t.note %}<span class="teach-note">· {{ t.note }}</span>{% endif %}
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-</section>
-
-<section class="section reveal">
   <h2>Talks &amp; conferences</h2>
   <div class="grid-2">
     <div class="card">

@@ -649,3 +649,17 @@ html[data-theme="dark"]{
 .interests-intro{max-width:68ch;margin:0 0 18px;color:var(--fg-soft);font-size:16px;line-height:1.7}
 .card.theme h3{margin:0 0 6px}
 .card.theme p{margin:0;font-size:14.5px;line-height:1.6;color:var(--fg-soft)}
+
+/* Open course notes (Teaching page) */
+.card.course h3{margin:10px 0 6px}
+.card.course p{margin:0 0 14px;font-size:14.5px;line-height:1.6;color:var(--fg-soft)}
+.card.course .chip-link .ic-sm{width:14px;height:14px}
+
+/* Phones: the links move to a second row that scrolls sideways; the brand links home */
+@media (max-width: 760px){
+  .nav{flex-wrap:wrap;row-gap:6px;border-radius:22px}
+  .nav-right{flex:1 0 100%;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:1px 0}
+  .nav-right::-webkit-scrollbar{display:none}
+  .nav-right > *{flex:0 0 auto}
+  .nav-right > a:first-child{display:none}
+}

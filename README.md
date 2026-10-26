@@ -43,7 +43,8 @@ Almost everything you'd want to change lives in `_data/resume.yml`:
 - `news` — items shown on the home page
 - `publications` — feeds both the home preview and the dedicated Publications page
 - `research_projects` — long-form projects on the Research page
-- `experience`, `education`, `teaching`, `talks`, `awards` — Research page
+- `experience`, `education`, `talks`, `awards` — Research page
+- `teaching_intro`, `course_notes`, `teaching` — Teaching page (open course notes, then courses taught)
 
 After editing, refresh the browser (Jekyll watches for changes when run via `--livereload`).
 
@@ -58,4 +59,5 @@ assets/css/main.css     styles (light + dark mode)
 index.md                Home
 research.md             Research
 publications.md         Publications
+teaching.md             Teaching (open course notes, courses taught)
 ```
