@@ -663,3 +663,4 @@ html[data-theme="dark"]{
   .nav-right > *{flex:0 0 auto}
   .nav-right > a:first-child{display:none}
 }
+.card.course p.course-credit{margin:-6px 0 14px;font-size:13px;color:var(--muted);font-style:italic}

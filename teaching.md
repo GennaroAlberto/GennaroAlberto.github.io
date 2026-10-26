@@ -21,6 +21,7 @@ permalink: /teaching/
         </div>
         <h3>{{ c.title }}</h3>
         <p>{{ c.text }}</p>
+        {% if c.credit %}<p class="course-credit">{{ c.credit }}</p>{% endif %}
         <div class="pub-links">
           <a class="chip-link" href="{{ c.repo }}" target="_blank" rel="noopener">
             <svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg>GitHub

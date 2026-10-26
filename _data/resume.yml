@@ -175,6 +175,9 @@ course_notes:
       From probability as information, martingales and arbitrage to the binomial model,
       Brownian motion, stochastic calculus and risk-neutral pricing, with extra chapters
       on arbitrage-free option surfaces, Hawkes processes, rough volatility and signatures.
+    credit: >-
+      Built from my notes as a student in the course and from the discussion sections I
+      later taught as its GSI; the flow follows the lectures of Prof. Thibaut Mastrolia.
     repo: "https://github.com/GennaroAlberto/ieor222-financial-engineering"
     site: "https://gennaroalberto.github.io/ieor222-financial-engineering/"
   - course: "MFE 230D"
