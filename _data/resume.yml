@@ -170,7 +170,7 @@ teaching_intro: >-
 course_notes:
   - course: "IEOR 222"
     title: "Financial Engineering"
-    status: "In progress"
+    status: "20 chapters"
     text: >-
       From probability as information, martingales and arbitrage to the binomial model,
       Brownian motion, stochastic calculus and risk-neutral pricing, with extra chapters
