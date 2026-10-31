@@ -182,7 +182,7 @@ course_notes:
     site: "https://gennaroalberto.github.io/ieor222-financial-engineering/"
   - course: "MFE 230D"
     title: "Derivatives: Quantitative Methods"
-    status: "In preparation"
+    status: "20 chapters"
     text: >-
       Static arbitrage and replication, Monte Carlo and variance reduction, Greeks by
       simulation, path-dependent and multi-asset options, stochastic volatility and
