@@ -164,8 +164,10 @@ awards:
 # Teaching page: intro and the open course notes (one card per repository).
 teaching_intro: >-
   I am turning the courses I taught at UC Berkeley into open lecture notes: complete
-  proofs, exercises, and interactive Python notebooks that open in Colab. Solutions are
-  not published, so that the courses are not spoiled for future students.
+  proofs, exercises, and interactive Python notebooks that open in Colab. I have also
+  translated into English the notes I learnt probability from, Paola Siri's course at the
+  Politecnico di Torino. Solutions are not published, so that the courses are not spoiled
+  for future students.
 
 course_notes:
   - course: "IEOR 222"
@@ -189,6 +191,19 @@ course_notes:
       numerical grids.
     repo: "https://github.com/GennaroAlberto/mfe230d-derivatives"
     site: "https://gennaroalberto.github.io/mfe230d-derivatives/"
+  - course: "PoliTo"
+    title: "Probability with Measure Theory"
+    status: "17 chapters"
+    text: >-
+      Measure theory and Lebesgue integration, laws and densities, characteristic functions,
+      conditional expectation, Gaussian vectors, and the limit theorems up to the central
+      limit theorem and the delta method.
+    credit: >-
+      An English translation and digitisation of Paola Siri's handwritten notes for
+      Probability and Statistics at the Politecnico di Torino. I learnt probability with
+      these notes, and they are still among my favourite to read.
+    repo: "https://github.com/GennaroAlberto/probability-measure-theory"
+    site: "https://gennaroalberto.github.io/probability-measure-theory/"
 
 # Courses taught (Teaching page).
 teaching:

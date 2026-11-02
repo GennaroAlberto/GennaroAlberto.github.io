@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Teaching
-description: "Open lecture notes by Alberto Gennaro for UC Berkeley IEOR 222 (Financial Engineering) and MFE 230D (Derivatives: Quantitative Methods), and the courses he has taught."
+description: "Open lecture notes by Alberto Gennaro for UC Berkeley IEOR 222 (Financial Engineering) and MFE 230D (Derivatives: Quantitative Methods), an English translation of Paola Siri's probability notes, and the courses he has taught."
 permalink: /teaching/
 ---
 
