@@ -18,8 +18,8 @@ defaults:
 
 # Google Search Console ownership check: paste the content="..." value of the
 # HTML-tag method here, push, then click Verify in Search Console.
-# webmaster_verifications:
-#   google: PASTE_CODE_HERE
+webmaster_verifications:
+  google: NPpmsWAfnd8HFGsslRNTs0V2sdO8IjCObOlSLkNQnIM
 timezone: America/New_York
 
 plugins:
