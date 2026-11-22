@@ -71,6 +71,10 @@ research_interests:
 
 # News / highlights — most recent first
 news:
+  - when: "Nov 2026"
+    what: "<em>Signature Methods for Optimal Market Making</em> (with T. Mastrolia and F. Primavera) receives the <strong>Best Paper Award</strong> at <strong>ICAIF '26</strong> in Milan."
+  - when: "Nov 2026"
+    what: "<em>2BSDE with uncertain horizon and application to stochastic control in erratic environments</em> (with T. Mastrolia): <strong>minor revision</strong>."
   - when: "Oct 2026"
     what: "<em>Signature Methods for Optimal Market Making</em> (with T. Mastrolia and F. Primavera) accepted at <strong>ICAIF '26</strong> in Milan, with an oral presentation."
   - when: "Aug 2026"
@@ -92,9 +96,9 @@ news:
 publications:
   - title: "Signature Methods for Optimal Market Making"
     authors: "A. Gennaro, T. Mastrolia, F. Primavera"
-    venue: "ICAIF '26, ACM International Conference on AI in Finance, Milan · Oral presentation · arXiv:2606.19772"
+    venue: "ICAIF '26, ACM International Conference on AI in Finance, Milan · Oral presentation · <strong>Best Paper Award</strong> · arXiv:2606.19772"
     year: 2026
-    status: "oral"
+    status: "best paper award"
     summary: "Bid and ask quotes for a mean–variance market maker, learned as functions of the signature of the order-flow path. The problem reduces to a pseudo-linear optimization over the expected signature, solved with Sig-REINFORCE under Poisson and Hawkes order flow and benchmarked against PPO."
     links:
       - { label: "arXiv", href: "https://arxiv.org/abs/2606.19772" }
@@ -112,9 +116,9 @@ publications:
       - { label: "Code",  href: "https://github.com/GennaroAlberto/PrincipalAgent" }
   - title: "2BSDE with uncertain horizon and application to stochastic control in erratic environments"
     authors: "A. Gennaro, T. Mastrolia"
-    venue: "Preprint · arXiv:2506.15037"
+    venue: "Minor revision · arXiv:2506.15037"
     year: 2025
-    status: "preprint"
+    status: "minor revision"
     summary: "Existence/uniqueness for non-Markovian 2BSDEs with an uncertain terminal horizon; framework for robust stochastic control under volatility and time uncertainty."
     links:
       - { label: "arXiv", href: "https://arxiv.org/abs/2506.15037" }
@@ -122,11 +126,11 @@ publications:
 
 research_projects:
   - title: "Signature methods for optimal market making"
-    status: "ICAIF '26 oral"
+    status: "ICAIF '26 Best Paper Award"
     bullets:
       - "Quotes learned as functions of the signature of the order-flow path, jumps included."
       - "Sig-REINFORCE under Poisson and self-exciting Hawkes order flow, benchmarked against PPO."
-      - "With Thibaut Mastrolia and Francesca Primavera; oral presentation at ICAIF '26 in Milan."
+      - "With Thibaut Mastrolia and Francesca Primavera; oral presentation and Best Paper Award at ICAIF '26 in Milan."
     links:
       - { label: "arXiv", href: "https://arxiv.org/abs/2606.19772" }
   - title: "Delegating portfolio management under time uncertainty"
@@ -138,6 +142,7 @@ research_projects:
       - { label: "Mathematical Finance", href: "https://doi.org/10.1111/mafi.70047" }
       - { label: "Paper code", href: "https://github.com/GennaroAlberto/PrincipalAgent" }
   - title: "2BSDE with uncertain horizon and control in erratic environments"
+    status: "minor revision"
     bullets:
       - "Existence and uniqueness for a class of non-Markovian 2BSDEs with random horizon."
       - "Framework for robust control under both volatility and time uncertainty."
@@ -151,6 +156,8 @@ research_projects:
       - { label: "Thesis code (D. Gioia)", href: "https://github.com/DanieleGioia/ATO" }
 
 awards:
+  - text: "Best Paper Award — ICAIF '26, ACM International Conference on AI in Finance (Milan)"
+    when: "Nov 2026"
   - text: "Best Paper Finalist (top 6) — SIAM Conference on Financial Mathematics"
     when: "Jul 2025"
   - text: "INFORMS RAS Problem Solving Competition — 2nd place"
@@ -277,7 +284,7 @@ talks:
     - "SIAM FM25 — Miami"
     - "WCMF25 — USC, Los Angeles"
   other:
-    - "ICAIF '26 — Milan, Nov 2026 (oral)"
+    - "ICAIF '26 — Milan, Nov 2026 (oral, Best Paper Award)"
     - "Berkeley–Columbia Meeting in Engineering &amp; Statistics — 2025"
     - "INFORMS25 — RAS Problem Solving Competition (2nd place), 2025"
     - "Berkeley CREST Cyber-Risk Conference — 2023"
