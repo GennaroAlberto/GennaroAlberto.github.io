@@ -73,8 +73,6 @@ research_interests:
 news:
   - when: "Nov 2026"
     what: "<em>Signature Methods for Optimal Market Making</em> (with T. Mastrolia and F. Primavera) receives the <strong>Best Paper Award</strong> at <strong>ICAIF '26</strong> in Milan."
-  - when: "Nov 2026"
-    what: "<em>2BSDE with uncertain horizon and application to stochastic control in erratic environments</em> (with T. Mastrolia): <strong>minor revision</strong>."
   - when: "Oct 2026"
     what: "<em>Signature Methods for Optimal Market Making</em> (with T. Mastrolia and F. Primavera) accepted at <strong>ICAIF '26</strong> in Milan, with an oral presentation."
   - when: "Aug 2026"
@@ -142,7 +140,6 @@ research_projects:
       - { label: "Mathematical Finance", href: "https://doi.org/10.1111/mafi.70047" }
       - { label: "Paper code", href: "https://github.com/GennaroAlberto/PrincipalAgent" }
   - title: "2BSDE with uncertain horizon and control in erratic environments"
-    status: "minor revision"
     bullets:
       - "Existence and uniqueness for a class of non-Markovian 2BSDEs with random horizon."
       - "Framework for robust control under both volatility and time uncertainty."
